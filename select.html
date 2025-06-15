@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تفاصيل الشاليه</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+      max-width: 700px;
+      margin: auto;
+    }
+    .details {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #009688;
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    ul li {
+      background: #e0f2f1;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #00796b;
+    }
+    button {
+      padding: 12px 25px;
+      background-color: #0c0096;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00796b;
+    }
+  </style>
+</head>
+<body>
+  <div class="details">
+    <h1 id="chalet-name"></h1>
+    <img id="chalet-image" src="" alt="صورة الشاليه" style="display:none;" />
+    <p id="chalet-description"></p>
+    <ul id="chalet-features"></ul>
+
+    <h3>تفاصيل إضافية:</h3>
+    <ul>
+      <li><strong>العنوان:</strong> <span id="chalet-address"></span></li>
+      <li><strong>عدد الغرف:</strong> <span id="chalet-rooms"></span></li>
+      <li><strong>عدد الأدوار:</strong> <span id="chalet-floors"></span></li>
+      <li><strong>مصعد:</strong> <span id="chalet-elevator"></span></li>
+      <li><strong>مسبح:</strong> <span id="chalet-pool"></span></li>
+      <li><strong>مرفق شواء (BBQ):</strong> <span id="chalet-bbq"></span></li>
+      <li><strong>مطبخ مجهز:</strong> <span id="chalet-kitchen"></span></li>
+      <li><strong>السعر:</strong> <span id="chalet-price"></span></li>
+    </ul>
+
+    <button id="book-btn">احجز الشاليه</button>
+  </div>
+
+  <script>
+    const chalets = {
+      'شاليه ريفيرا': {
+        description: 'موقع مميز، مسبح خاص، جلسات خارجية.',
+        features: ['مسبح خاص', 'إطلالة بحرية', 'مطبخ مجهز'],
+        image: 'timthumb.jpeg',
+        address: ' في الخيران ',
+        rooms: 3,
+        floors: 2,
+        elevator: true,
+        pool: true,
+        bbq: true,
+        kitchen: true,
+        price: '150 دينار '
+      },
+      'شاليه موج': {
+        description: 'هدوء تام، ديكور أنيق، مناسب للعائلات.',
+        features: ['غرف واسعة', 'تكييف مركزي', 'جلسات خارجية'],
+        image: 'allimg/timthumb.jpeg',
+        address: ' في الخيران ',
+        rooms: 4,
+        floors: 1,
+        elevator: false,
+        pool: false,
+        bbq: true,
+        kitchen: true,
+        price: '  200 دينار     '
+      },
+      'شاليه دايتونا': {
+        description: 'إطلالة بحرية، ديكور راقٍ، جلسات خارجية.',
+        features: ['غرف واسعة', 'تكييف مركزي', 'جلسات خارجية'],
+        image: 'allimg/timthumb (2).jpeg',
+        address: 'في الخيران  ',
+        rooms: 5,
+        floors: 3,
+        elevator: true,
+        pool: true,
+        bbq: false,
+        kitchen: true,
+        price: ' 160 دينار '
+      },
+      'شاليه دار بيان': {
+        description: 'إطلالة بحرية، ديكور راقٍ، جلسات خارجية.',
+        features: ['غرف واسعة', 'تكييف مركزي', 'جلسات خارجية'],
+        image: 'allimg/timthumb (3).jpeg',
+        address: 'في الخيران  ',
+        rooms: 5,
+        floors: 3,
+        elevator: true,
+        pool: true,
+        bbq: false,
+        kitchen: true,
+        price: ' 210 دينار '
+      },
+      'شاليه ذاليك ': {
+        description: 'إطلالة بحرية، ديكور راقٍ، جلسات خارجية.',
+        features: ['غرف واسعة', 'تكييف مركزي', 'جلسات خارجية'],
+        image: 'allimg/timthumb (4).jpeg',
+        address: 'في الخيران  ',
+        rooms: 5,
+        floors: 2,
+        elevator: false,
+        pool: true,
+        bbq: true,
+        kitchen: true,
+        price: ' 210 دينار '
+      },
+      'شاليه بلاك شيل ': {
+        description: 'إطلالة بحرية، ديكور راقٍ، جلسات خارجية.',
+        features: ['غرف واسعة', 'تكييف مركزي', 'جلسات خارجية'],
+        image: 'allimg/timthumb (5).jpeg',
+        address: 'في الخيران  ',
+        rooms: 9,
+        floors: 3,
+        elevator: false,
+        pool: true,
+        bbq: true,
+        kitchen: true,
+        price: ' 245 دينار '
+      },
+
+  'شاليه برستيج': {
+  description: 'إطلالة بحرية، ديكور راقٍ، جلسات خارجية.',
+  features: ['غرف واسعة', 'تكييف مركزي', 'جلسات خارجية'],
+  image: 'allimg/timthumb (6).jpeg',
+  address: 'في الخيران',
+  rooms: 9,
+  floors: 3,
+  elevator: true,
+  pool: true,
+  bbq: true,
+  kitchen: true,
+  price: '245 دينار'
+}
+
+
+
+
+
+
+
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const chaletName = decodeURIComponent(params.get('chalet'));
+
+    if (chalets[chaletName]) {
+      const chalet = chalets[chaletName];
+      document.getElementById('chalet-name').textContent = chaletName;
+      document.getElementById('chalet-description').textContent = chalet.description;
+
+      // عرض الميزات
+      const ulFeatures = document.getElementById('chalet-features');
+      ulFeatures.innerHTML = '';
+      chalet.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        ulFeatures.appendChild(li);
+      });
+
+      // الصورة
+      const img = document.getElementById('chalet-image');
+      img.src = chalet.image;
+      img.style.display = 'block';
+
+      // التفاصيل الإضافية
+      document.getElementById('chalet-address').textContent = chalet.address;
+      document.getElementById('chalet-rooms').textContent = chalet.rooms;
+      document.getElementById('chalet-floors').textContent = chalet.floors;
+      document.getElementById('chalet-elevator').textContent = chalet.elevator ? 'نعم' : 'لا';
+      document.getElementById('chalet-pool').textContent = chalet.pool ? 'نعم' : 'لا';
+      document.getElementById('chalet-bbq').textContent = chalet.bbq ? 'نعم' : 'لا';
+      document.getElementById('chalet-kitchen').textContent = chalet.kitchen ? 'نعم' : 'لا';
+      document.getElementById('chalet-price').textContent = chalet.price;
+
+      // زر الحجز
+      document.getElementById('book-btn').addEventListener('click', () => {
+        window.location.href = `form.html?chalet=${encodeURIComponent(chaletName)}`;
+      });
+    } else {
+      document.body.innerHTML = '<p>الشاليه غير موجود</p>';
+    }
+  </script>
+</body>
+</html>

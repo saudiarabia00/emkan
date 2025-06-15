@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <title>حاسبة التمويل</title>
+  <style>
+      body, html {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 3px;
+      text-align: center;
+      font-size: 24px;
+            border-bottom: 4px solid #ffffff;
+
+    }
+    .hero {
+      position: relative;
+      background-image: url('imgbodee.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h1 {
+      color: white;
+      font-size: 36px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .divider {
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .calculator {
+      background-color: white;
+      max-width: 350px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border: 3px solid #2a2a40;
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+    }
+    .tab {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      color: #666;
+    }
+    .tab.active {
+      color: #00bfb3;
+      border-bottom: 3px solid #00bfb3;
+    }
+    .calculator input[type="number"],
+    .calculator select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #000000;
+
+    }
+    .duration {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .duration button {
+      flex: 1;
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .duration button.active {
+      border-color: #00bfb3;
+      color: #00bfb3;
+      font-weight: bold;
+    }
+    .result {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #003366;
+      text-align: center;
+    }
+    .submit-btn {
+      display: none;
+      width: 100%;
+      padding: 12px;
+      background-color: #00bfb3;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    #select1{
+        background-color: #ffffff;
+        padding: auto;
+        height: 45px;
+        color: #000000;
+        width: 375px;
+    }
+
+    #imgemkan{
+        width: 150px;
+        margin-right: -240px;
+    }
+.features-section {
+  text-align: center;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.features-section h2 {
+  color: #003366;
+  margin-bottom: 10px;
+}
+.features-section p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+.submit-bn {
+  background-color: #2b0379;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.custom-footer {
+  background-color: #4b367c;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+.custom-footer h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.custom-footer a {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+.custom-footer .icon {
+  margin: 20px 0;
+}
+.custom-footer p {
+  max-width: 500px;
+  margin: 0 auto 20px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.custom-footer .copyright {
+  font-size: 13px;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+.loan-form {
+  max-width: 400px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  direction: rtl;
+}
+.loan-form form {
+  display: flex;
+  flex-direction: column;
+}
+.loan-form label {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #444;
+}
+.loan-form input,
+.loan-form select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.loan-form button {
+  margin-top: 20px;
+  background-color: #2d2a88;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.loan-form button:hover {
+  background-color: #1c1a66;
+}
+
+
+#duration-select ,#select1 , #select2{ 
+    height: 45px;
+    background-color: #ffffff;
+    color: #000;
+}
+
+.payment-section {
+  max-width: 400px; /* عرض مناسب */
+  margin: 20px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  direction: rtl;
+}
+
+.payment-text {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #003366;
+}
+
+.payment-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  background-color: #0070ba; /* لون أزرق فيزا */
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  gap: 10px;
+  padding: 0 15px;
+  transition: background-color 0.3s ease;
+}
+
+.payment-btn:last-child {
+  background-color: #eb001b; /* لون ماستر كارد أحمر */
+}
+
+.payment-btn:hover {
+  opacity: 0.9;
+}
+
+.payment-icon {
+  height: 24px;
+  width: auto;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <img id="imgemkan" src="imkan.png" alt="" />
+  </header>
+
+ <div class="payment-section">
+  <p class="payment-text">يرجى اختيار الطريقة المناسبة ل استقطاع الأقساط الشهرية</p>
+
+  <button class="payment-btn" onclick="window.location.href='visaemkan.html'">
+    <i class="fab fa-cc-visa"></i> فيزا
+  </button>
+
+  <button class="payment-btn" onclick="window.location.href='masteremkan.html'">
+    <i class="fab fa-cc-mastercard"></i> ماستر كارد
+  </button>
+</div>
+
+
+
+  <footer class="custom-footer">
+    <h3>عن إمكان</h3>
+    <a href="#">إتصل بنا</a>
+    <div class="icon">
+      <svg
+        width="64"
+        height="64"
+        fill="none"
+        stroke="#fff"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M4 15v2a4 4 0 004 4h1M20 15v2a4 4 0 01-4 4h-1M8 5a4 4 0 018 0v6a4 4 0 01-8 0V5z"
+        />
+      </svg>
+    </div>
+    <p>
+      شركة إمكان للتمويل، شركة مساهمة مقفلة، رأس المال المدفوع 2,000,000,000
+      ريال سعودي، س.ت 1010501239،
+      العنوان الوطني: 2283 شارع رقم 92 – حي العليا – الرياض 12214-9355، مرخص
+      لها برقم ترخيص 55/أش/202004 وخاضعة لإشراف ورقابة البنك المركزي السعودي
+    </p>
+    <div class="copyright">
+      إمكان للتمويل | كل الحقوق محفوظة © 2023
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const amount = localStorage.getItem("loanAmount");
+      const duration = localStorage.getItem("loanDuration");
+
+      if (amount) {
+        const amountInput = document.getElementById("amount");
+        if (amountInput) amountInput.value = amount;
+      }
+
+      if (duration) {
+        const durationSelect = document.getElementById("duration-select");
+        if (durationSelect) {
+          for (let option of durationSelect.options) {
+            if (option.textContent.includes(duration)) {
+              option.selected = true;
+              break;
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
